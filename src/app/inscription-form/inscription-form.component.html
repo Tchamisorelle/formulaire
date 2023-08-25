@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="modal animate__animated animate__swing show" tabindex="-1"
+        aria-labelledby="swinganimationModalLabel" aria-hidden="true" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                    <h5 class="modal-title " id="myModalLabel">INSCRIPTION</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
+                        <div *ngIf="errorMessages.length > 0" class="alert alert-danger" role="alert">
+                            <ul>
+                                <li *ngFor="let error of errorMessages">{{ error }}</li>
+                            </ul>
+                        </div>
+
+                        <fieldset id="sect1">
+                            <legend class="text-sm">Information personnelle</legend>
+                            <div class="mb-3">
+                                <label for="nom" class="form-label">Nom</label>
+                                <input type="text" class="form-control" id="nom" formControlName="nom"
+                                    maxlength="20" autocomplete="on" autofocus="autofocus" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="prenom" class="form-label">Prénom</label>
+                                <input type="text" class="form-control" id="prenom" formControlName="prenom"
+                                    maxlength="20" autocomplete="on" autofocus="autofocus" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-check-label">Homme et femme?</label><br>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="homme" formControlName="sexe"
+                                        value="homme" checked>
+                                    <label for="homme" class="form-check-label">Homme</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="femme" formControlName="sexe"
+                                        value="femme">
+                                    <label for="femme" class="form-check-label">Femme</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Votre mail</label>
+                                <input type="email" class="form-control" id="email" formControlName="mail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Entrer mot de passe</label>
+                                <input type="password" class="form-control" id="password" formControlName="password"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password_confirm" class="form-label">Confirmez le mot de passe</label>
+                                <input type="password" class="form-control" id="password_confirm"
+                                    formControlName="password_confirm" required>
+                            </div>
+                        </fieldset>
+                        <fieldset id="sect2">
+                            <legend class="text-sm">Information supplémentaire</legend>
+                            <div class="mb-3">
+                                <div class="form-group">
+                                    <label class="form-check-label">Mineur ou majeur?</label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" formControlName="qualification_chercheur"
+                                            id="qualification">
+                                        <label for="qualification" class="form-check-label">Chercheur</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" formControlName="qualification_mentor"
+                                            id="qualification_mentor">
+                                        <label for="qualification_mentor" class="form-check-label">Mentor</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pays" class="form-label">Où habitez-vous?</label><br>
+                                <select class="form-select" formControlName="pays">
+                                    <optgroup label="Europe">
+                                        <option value="france">France</option>
+                                        <option value="belgique">Belgique</option>
+                                        <option value="allemagne">Allemagne</option>
+                                    </optgroup>
+                                    <optgroup label="Amérique">
+                                        <option value="canada">Canada</option>
+                                    </optgroup>
+                                    <optgroup label="Afrique">
+                                        <option value="cameroun">Cameroun</option>
+                                        <option value="congo">Congo</option>
+                                        <option value="algerie">Algérie</option>
+                                        <option value="tchad">Tchad</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="alert alert-danger" *ngFor="let message of errorMessages">
+                                {{ message }}
+                            </div>
+                        </fieldset>
+                        
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
