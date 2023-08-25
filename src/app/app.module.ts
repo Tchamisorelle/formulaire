@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InscriptionFormComponent } from './inscription-form/inscription-form.component';
 import { DjangoIndexComponent } from './django-index/django-index.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import { DjangoIndexComponent } from './django-index/django-index.component';
     AppRoutingModule,
     FormsModule,         
     ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

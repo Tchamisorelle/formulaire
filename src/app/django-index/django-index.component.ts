@@ -9,11 +9,13 @@ import { HttpClient } from '@angular/common/http';
 export class DjangoIndexComponent implements OnInit {
   indexContent: string = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    // private http: HttpClient
+    ) { }
 
   ngOnInit(): void {
-    this.http.get('./././././formulaire/templates/index.html', { responseType: 'text' }).subscribe(content => {
-      this.indexContent = content;
-    });
+    // this.http.get('./././././formulaire/templates/index.html', { responseType: 'text' }).subscribe(content => {
+    //   this.indexContent = content;
+    // });
   }
 }
